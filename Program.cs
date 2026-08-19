@@ -18,10 +18,14 @@ namespace xadrez_console
 
                     Console.WriteLine("Digite a posição de origem: ");
                     Posicao origem = Tela.LerPosicaoXadrez().ToPosicao();
+                    bool[,] matrizPossiveis = partida.tab.Peca(origem).MovimentosPossiveis();
+                    Console.Clear();
+                    Tela.ImprimirTabuleiro(partida.tab, matrizPossiveis);
+                    Console.WriteLine();
                     Console.WriteLine("Digite a posição de destino: ");
                     Posicao destino = Tela.LerPosicaoXadrez().ToPosicao();
 
-                    partida.ExecutaMoviment9(origem, destino);
+                    partida.ExecutaMovimento(origem, destino);
 
                 }
 

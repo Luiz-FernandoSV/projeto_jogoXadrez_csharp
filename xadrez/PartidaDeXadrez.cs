@@ -21,7 +21,7 @@ namespace xadrez
             ColocarPecas();
         }
 
-        public void ExecutaMoviment9(Posicao origem, Posicao destino)
+        public void ExecutaMovimento(Posicao origem, Posicao destino)
         {
             Peca p = tab.RetirarPecao(origem);
             p.IncrementarQtdMovimentos();
