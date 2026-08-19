@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
-using tabuleiro;
 
-namespace xadrez_console.tabuleiro
+namespace tabuleiro
 {
     class Tabuleiro
     {
@@ -38,7 +37,11 @@ namespace xadrez_console.tabuleiro
 
         public bool PosicaoValida(Posicao pos)
         {
-            return pos.Linha < 0 || pos.Linha >= Linhas || pos.Coluna < 0 || pos.Coluna >= Colunas;
+            if(pos.Linha < 0 || pos.Linha >= Linhas || pos.Coluna < 0 || pos.Coluna >= Colunas)
+            {
+                return false;
+            }
+            return true;
         }
 
         public bool ExistePeca(Posicao pos)
