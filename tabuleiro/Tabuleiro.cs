@@ -35,7 +35,7 @@ namespace tabuleiro
             p.Posicao = pos;
         }
 
-        public Peca RetirarPecao(Posicao pos)
+        public Peca RetirarPeca(Posicao pos)
         {
             if(Peca(pos) == null)
             {
