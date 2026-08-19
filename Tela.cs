@@ -82,6 +82,42 @@ namespace xadrez_console
             int linha = int.Parse(s[1] + "");
             return new PosicaoXadrez(coluna, linha);
         }
+        public static void ImprimirPartida(PartidaDeXadrez partida)
+        {
+            ImprimirTabuleiro(partida.tab);
+            Console.WriteLine();
+            ImprimirPecasCapturadas(partida);
+            Console.WriteLine();
+            Console.WriteLine("Turno: " + partida.turno);
+            Console.WriteLine("Aguardando jogada: " + partida.JogadorAtual);
+            Console.WriteLine();
+
+        }
+
+        public static void ImprimirPecasCapturadas(PartidaDeXadrez partida)
+        {
+            Console.WriteLine("Peças capturadas:");
+            Console.Write("Brancas: ");
+            ImprimirConjunto(partida.PecasCapturadas(Cor.Branca));
+            Console.WriteLine();
+            ConsoleColor aux = Console.ForegroundColor;
+            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.Write("Pretas: ");
+            ImprimirConjunto(partida.PecasCapturadas(Cor.Preta));
+            Console.ForegroundColor = aux;
+            Console.WriteLine();
+
+        }
+
+        public static void ImprimirConjunto(HashSet<Peca> pecasCapturadas)
+        {
+            Console.Write("[");
+            foreach(Peca x in pecasCapturadas)
+            {
+                Console.Write(x + " ");
+            }
+            Console.Write("]");
+        }
 
     }
 
