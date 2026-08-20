@@ -17,14 +17,13 @@ namespace xadrez
             return "P";
         }
 
-        public bool ExisteInimigo(Posicao pos)
+        private bool ExisteInimigo(Posicao pos)
         {
             Peca p = Tab.Peca(pos);
             return p != null && p.Cor != Cor;
-
         }
 
-        public bool Livre(Posicao pos)
+        private bool Livre(Posicao pos)
         {
             return Tab.Peca(pos) == null;
         }
@@ -32,6 +31,7 @@ namespace xadrez
         public override bool[,] MovimentosPossiveis()
         {
             bool[,] mat = new bool[Tab.Linhas, Tab.Colunas];
+
             Posicao pos = new Posicao(0, 0);
 
             if (Cor == Cor.Branca)
@@ -90,13 +90,8 @@ namespace xadrez
                     mat[pos.Linha, pos.Coluna] = true;
                 }
             }
-            return mat;
-        }
 
-        private bool PodeMover(Posicao pos)
-        {
-            Peca p = Tab.Peca(pos);
-            return p == null || p.Cor != this.Cor;
+            return mat;
         }
     }
 }
